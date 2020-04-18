@@ -177,6 +177,7 @@ mod aio_support {
                             .map_position(|pos| pos.translate_position(buffer))
                             .map_range(|range| format!("{:?}", range))
                             .to_string();
+                        bytes.advance(buffer.len());
                         return Err(RedisError::from((
                             ErrorKind::ResponseError,
                             "parse error",
